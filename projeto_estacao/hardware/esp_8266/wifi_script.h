@@ -5,9 +5,10 @@
 #define wifi_password "bronze18"
 
 
-#define mqtt_server "m15.cloudmqtt.com"
+#define mqtt_server "iot.eclipse.org"
 #define mqtt_user "ssnqowmf"
 #define mqtt_password "lgAui-jxuz9k"
+#define mqtt_id "M32"
 
 #define leitura "/mqtt/leitura"
 #define estado_led "/mqtt/estado"
@@ -33,7 +34,7 @@ void reconnect(){
 
   while(!client.connected()){
     Serial.print("Tentando MQTT...");
-    if(client.connect("ESP8266Client", mqtt_user, mqtt_password)){
+    if(client.connect(mqtt_id)){
       Serial.println("Conectado"); // Conecta ao broker
     } else{
       Serial.println("FALHA");
