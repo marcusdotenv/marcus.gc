@@ -18,7 +18,7 @@ db_name = "ML"
 br_adress = "iot.eclipse.org"
 br_port = 1883
 br_keep = 60
-topic = "/mqtt/leitura"
+topic = "/mqtt/#"
 
 # Conecta com o banco
 try:
