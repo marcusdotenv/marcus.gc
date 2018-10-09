@@ -10,8 +10,12 @@
 #define mqtt_password "lgAui-jxuz9k"
 #define mqtt_id "M32"
 
-#define leitura "/mqtt/leitura"
-#define estado_led "/mqtt/estado"
+#define luminosidade "/mqtt/luminosidade"
+#define temperatura "/mqtt/temperatura"
+#define umidade "/mqtt/umidade"
+
+#define DHT_PINO D7
+#define DHT_TIPO DHT11
 
 WiFiClient espClient;
 PubSubClient client(espClient);

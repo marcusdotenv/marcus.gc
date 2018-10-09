@@ -2,16 +2,25 @@
 #include<ESP8266WiFi.h>
 #include<PubSubClient.h>
 #include "wifi_script.h"
+#include<DHT.h>
 
-long lastmsg = 0;
+unsigned long lastmsg = 0;
+unsigned long lastmsg2 = 0;
 int cont = 0;
 int led = D3;
 float dado = 0;
 
+DHT TH_sensor(DHT_PINO, DHT_TIPO);
+
+
+
+
 // ================== PROTÓTIPO DE FUNÇÕES ==================
 float converte(float a);
 
-void envia(); // envia dados para o broker.
+void envia_luminosidade(); // envia dados para o broker.
+void envia_temperatura();
+void envia_umidade();
 
 void teste_led(); // aciona e envia o estado da lâmpada na borda de subida ou descida.
 
@@ -22,6 +31,7 @@ void setup(){
     setup_wifi();
     client.setServer(mqtt_server, 1883);
     pinMode(led, OUTPUT);
+    TH_sensor.begin();
   }
 
 
@@ -33,11 +43,16 @@ void loop(){
   client.loop();
 
   unsigned long now = millis(); // Pega o tempo em mili de execução do algoritmo. Lembrar que isso é muito impreciso.
+  unsigned long now2 = millis();
 
     if(now - lastmsg > 1000){ // Conta 1 segundo para o envio do dado
       lastmsg = now;
-      envia();
-      teste_led();
+      envia_luminosidade();
+  }
+  if(now2 - lastmsg2 > 120000){
+    lastmsg2 = now2;
+    envia_temperatura();
+    envia_umidade();
   }
 
 }
@@ -50,15 +65,27 @@ void loop(){
     return a_volt;
   }
 
-  void envia(){
+  void envia_luminosidade(){
 
     float val = analogRead(0);
     dado = converte(val);
-    client.publish(leitura, String(dado).c_str(), true);
+    client.publish(luminosidade, String(dado).c_str(), true);
   }
 
-  void teste_led(){
-    int b = digitalRead(D3);
+  void envia_temperatura(){
+    float t = TH_sensor.readTemperature();
+    client.publish(temperatura, String(t).c_str(), true);
+    Serial.println(t);
+  }
+  void envia_umidade(){
+    float u = TH_sensor.readHumidity();
+    client.publish(umidade, String(u).c_str(), true);
+    Serial.println(u);
+
+  }
+
+/*  void teste_led(){
+    int b = digitalRead(D3);  PARTE QUE PODE SER ADICIONADA DEPOIS
     if(dado >= 0.10 && b == HIGH){
       digitalWrite(led, LOW);
       client.publish(leitura, "DESLIGADO", true);
@@ -68,4 +95,4 @@ void loop(){
       digitalWrite(led, HIGH);
       client.publish(leitura, "LIGADO", true);
     }
-  }
+  } */
