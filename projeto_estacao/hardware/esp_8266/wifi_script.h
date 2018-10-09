@@ -1,24 +1,30 @@
 #include<ESP8266WiFi.h>
 #include<PubSubClient.h>
 
+// ============ Configurações WiFi ==============
 #define wifi_ssid "PROTOLAB"
 #define wifi_password "protolab_ufrn"
 
-
+// ============ Configurações mqtt ==============
 #define mqtt_server "iot.eclipse.org"
 #define mqtt_user "ssnqowmf"
 #define mqtt_password "lgAui-jxuz9k"
 #define mqtt_id "M32"
 
+// ============ Configurações tópicos ==============
 #define luminosidade "/mqtt/luminosidade"
 #define temperatura "/mqtt/temperatura"
 #define umidade "/mqtt/umidade"
 
+// ============ Configurações DHT ==============
 #define DHT_PINO D7
 #define DHT_TIPO DHT11
 
+// ============ Configurações objetos ==============
 WiFiClient espClient;
 PubSubClient client(espClient);
+
+DHT TH_sensor(DHT_PINO, DHT_TIPO);
 
 void setup_wifi(){
   delay(10);

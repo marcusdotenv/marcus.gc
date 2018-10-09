@@ -72,3 +72,13 @@ O loop consiste em chamar a função reconnect() caso a conexão wifi tenha sido
 Além disso, dois contadores, *unsigned long*, pegam o valor da função millis() a fim de controlar o tempo em que os dados são enviados. Os dados de luminosidade são enviados uma vez a cada segundo. Enquanto os dados de temperatura e umidade uma vez a cada 2 minutos.
 
 Até o momento esses tempos foram arbitrários e não necessariamente condizem com os tempos ideais para que a amostragem de dados seja suficiente para se produzir analises sobre os dados. No futuro, será necessário conduzir um breve estudo sobre isso. Além disso, a função millis() não é suficientemente confiável para precisão, uma vez que, o início de sua contagem se dá quando o algoritmo inicia sua execução e essa função nunca para de contar.
+
+
+
+# Documentação do algoritmo Wifi e MQTT
+
+São utilizadas as mesmas bibliotecas que anteriormente foram citadas. Agora, nesse algoritmo, em primeiro momento temos a definição de vários parâmetros que serão usados durante a execução.
+
+
+
+Não há muitas particularidades nesse algoritmo. Apenas é importante se atentar a preencher corretamente os parâmetros das funções Wifi e MQTT. 

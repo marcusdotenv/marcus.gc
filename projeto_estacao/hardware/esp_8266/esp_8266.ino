@@ -10,11 +10,6 @@ int cont = 0;
 int led = D3;
 float dado = 0;
 
-DHT TH_sensor(DHT_PINO, DHT_TIPO);
-
-
-
-
 // ================== PROTÓTIPO DE FUNÇÕES ==================
 // ==== OPERAÇÕES MATEMÁTICAS ====
 float converte(float a);
