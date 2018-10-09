@@ -1,8 +1,8 @@
 #include<ESP8266WiFi.h>
 #include<PubSubClient.h>
 
-#define wifi_ssid "Katia_Bronze"
-#define wifi_password "bronze18"
+#define wifi_ssid "PROTOLAB"
+#define wifi_password "protolab_ufrn"
 
 
 #define mqtt_server "iot.eclipse.org"

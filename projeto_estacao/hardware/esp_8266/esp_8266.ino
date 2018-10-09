@@ -16,15 +16,21 @@ DHT TH_sensor(DHT_PINO, DHT_TIPO);
 
 
 // ================== PROTÓTIPO DE FUNÇÕES ==================
+// ==== OPERAÇÕES MATEMÁTICAS ====
 float converte(float a);
 
+// ==== ENVIO DE DADOS ====
 void envia_luminosidade(); // envia dados para o broker.
 void envia_temperatura();
 void envia_umidade();
 
-void teste_led(); // aciona e envia o estado da lâmpada na borda de subida ou descida.
+// ==== FUNÇÕES COMENTADAS ====
+/*
+void teste_borda();
 
-// ================== lOOP ==================
+*/
+
+//
 void setup(){
 
     Serial.begin(115200);
@@ -34,7 +40,7 @@ void setup(){
     TH_sensor.begin();
   }
 
-
+// ================== FUNÇÃO PRINCIPAL ==================
 void loop(){
   if(!client.connected()){
     reconnect(); // Caso o status seja desconectado, conecte.
@@ -62,7 +68,8 @@ void loop(){
 
   float converte(float a){
     float a_volt = (a*5)/1024;
-    return a_volt;
+    float a_percent = a_volt/5;
+    return a_percent;
   }
 
   void envia_luminosidade(){
@@ -84,15 +91,15 @@ void loop(){
 
   }
 
-/*  void teste_led(){
-    int b = digitalRead(D3);  PARTE QUE PODE SER ADICIONADA DEPOIS
+/*  void teste_borda(){
+    int b = digitalRead(D3);
     if(dado >= 0.10 && b == HIGH){
       digitalWrite(led, LOW);
-      client.publish(leitura, "DESLIGADO", true);
+      client.publish(yourtopic, "DESLIGADO", true);
     }
 
      if(dado <0.10 && b == LOW){
       digitalWrite(led, HIGH);
-      client.publish(leitura, "LIGADO", true);
+      client.publish(yourtopic, "LIGADO", true);
     }
   } */

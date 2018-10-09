@@ -43,8 +43,13 @@ def on_message(client, userdata, msg):
 
     print(msg.topic+" "+str(msg.payload)+" "+time.asctime())
 
-        #diz onde vai cada dado  no banco de dados nas tabelas corretas. (anotar sintaxe pois e muito confusa)
-    sql = """INSERT INTO `ML`.`luminosidade` (`id_dado`, `dado`, `dataHoraDado`) VALUES (NULL, '""" + str(msg.payload)+ """',+ NULL);"""
+    #diz onde vai cada dado  no banco de dados nas tabelas corretas. (anotar sintaxe pois e muito confusa)
+    if msg.topic[6:9] == "lum":
+        sql = """INSERT INTO `luminosidade` (`id_dado`, `dado`, `dataHoraDado`) VALUES (NULL, '""" + str(msg.payload)+ """',+ NULL);"""
+    if msg.topic[6:9] == "umi":
+        sql = """INSERT INTO `umidade` (`id_dado`, `dado`, `dataHoraDado`) VALUES (NULL, '""" + str(msg.payload)+ """',+ NULL);"""
+    if msg.topic[6:9] == "tem":
+        sql = """INSERT INTO `temperatura` (`id_dado`, `dado`, `dataHoraDado`) VALUES (NULL, '""" + str(msg.payload)+ """',+ NULL);"""
 
 
     try:
