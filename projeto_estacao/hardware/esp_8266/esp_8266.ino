@@ -46,12 +46,13 @@ void loop(){
   unsigned long now = millis(); // Pega o tempo em mili de execução do algoritmo. Lembrar que isso é muito impreciso.
   unsigned long now2 = millis();
 
-    if(now - lastmsg > 1000){ // Conta 1 segundo para o envio do dado
+   /* if(now - lastmsg > 1000){ // Conta 1 segundo para o envio do dado
       lastmsg = now;
       envia_luminosidade();
-  }
+  }*/
   if(now2 - lastmsg2 > 120000){
     lastmsg2 = now2;
+    envia_luminosidade();
     envia_temperatura();
     envia_umidade();
   }
@@ -63,7 +64,7 @@ void loop(){
 
   float converte(float a){
     float a_volt = (a*5)/1024;
-    float a_percent = a_volt/5;
+    float a_percent = (a_volt/5)*100;
     return a_percent;
   }
 

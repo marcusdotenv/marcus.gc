@@ -1,6 +1,6 @@
 # Documentação do algoritmo de medição
 
-CLique [aqui](esp_8266.ino) para ter acesso ao algoritmo de medição e [aqui](wifi_script.h) para ter acesso ao algoritmo de conexão Wifi.
+CLique [aqui](https://github.com/Marcusharu/marcus.gc/blob/master/projeto_estacao/hardware/esp_8266/esp_8266.ino) para ter acesso ao algoritmo de medição e [aqui](https://github.com/Marcusharu/marcus.gc/blob/master/projeto_estacao/hardware/esp_8266/wifi_script.h) para ter acesso ao algoritmo de conexão Wifi.
 
 São utilizadas as bibliotecas :
 
@@ -81,4 +81,4 @@ São utilizadas as mesmas bibliotecas que anteriormente foram citadas. Agora, ne
 
 
 
-Não há muitas particularidades nesse algoritmo. Apenas é importante se atentar a preencher corretamente os parâmetros das funções Wifi e MQTT. 
+Não há muitas particularidades nesse algoritmo. Apenas é importante se atentar a preencher corretamente os parâmetros das funções Wifi e MQTT.

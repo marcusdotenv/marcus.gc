@@ -9,8 +9,8 @@ Abaixo, uma lista dos projetos existentes:
 
 **Estação metereológica** -> Visa constrir e programar uma estação meterológica que se comunica com um banco de dados e mostra os dados em uma interface web.
 
-Clique [aqui](projeto_estacao\tutoriais.md) para acessar problemas que aconteceram e foram resolvidos durante a execução do projeto;
+Clique [aqui](https://github.com/Marcusharu/marcus.gc/blob/master/projeto_estacao/tutoriais.md) para acessar problemas que aconteceram e foram resolvidos durante a execução do projeto;
 
-Clique [aqui](projeto_estacao\hardware\esp_8266\docs.md) para acessar a documentação do algoritmo em hardware.
+Clique [aqui](https://github.com/Marcusharu/marcus.gc/blob/master/projeto_estacao/hardware/esp_8266/docs.md) para acessar a documentação do algoritmo em hardware.
 
-Clique [aqui](projeto_estacao\servidor\raspberrypi\doc.md) para acessar a documentação do algoritmo do servidor.
+Clique [aqui](https://github.com/Marcusharu/marcus.gc/blob/master/projeto_estacao/servidor/raspberrypi/doc.md) para acessar a documentação do algoritmo do servidor.

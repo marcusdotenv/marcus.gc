@@ -1,9 +1,10 @@
 #include<ESP8266WiFi.h>
 #include<PubSubClient.h>
+#include<DHT.h>
 
 // ============ Configurações WiFi ==============
-#define wifi_ssid "PROTOLAB"
-#define wifi_password "protolab_ufrn"
+#define wifi_ssid "Katia_Bronze"
+#define wifi_password "bronze18"
 
 // ============ Configurações mqtt ==============
 #define mqtt_server "iot.eclipse.org"
