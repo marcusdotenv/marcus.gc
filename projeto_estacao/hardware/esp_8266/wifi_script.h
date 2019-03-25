@@ -3,14 +3,14 @@
 #include<DHT.h>
 
 // ============ Configurações WiFi ==============
-#define wifi_ssid "Katia_Bronze"
-#define wifi_password "bronze18"
+#define wifi_ssid ""
+#define wifi_password ""
 
 // ============ Configurações mqtt ==============
-#define mqtt_server "iot.eclipse.org"
-#define mqtt_user "ssnqowmf"
-#define mqtt_password "lgAui-jxuz9k"
-#define mqtt_id "M32"
+#define mqtt_server ""
+#define mqtt_user ""
+#define mqtt_password ""
+#define mqtt_id ""
 
 // ============ Configurações tópicos ==============
 #define luminosidade "/mqtt/luminosidade"
